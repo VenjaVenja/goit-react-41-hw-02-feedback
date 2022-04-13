@@ -9,7 +9,7 @@ export class Section extends Component {
 
         return (
             <StatisticSection>
-                <h1>{title}</h1>
+                <h2>{title}</h2>
                 {children}
             </StatisticSection>
         )
