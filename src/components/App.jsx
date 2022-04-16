@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Section } from "./Section/Section";
 import { FeedbackOptions } from "./FeedbackOptions/FeedbackOptions";
 import { Statistics } from "./Statistics/Statistics";
+import { NotificationMessage } from "./Notification/Notification";
 
 
 export class App extends Component {
@@ -43,14 +44,15 @@ export class App extends Component {
           onLeaveFeedback={handleIncrement}
         />
       </Section>
-      <Section title="Statistics">
-        <Statistics
+        <Section title="Statistics">
+          {totalFeedback() > 0 ? 
+          <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
             total={totalFeedback()}
             positivePercentage={percentage()}
-        />
+        /> : <NotificationMessage message="There is no feedback"/>}
       </Section>
       </>
     )
